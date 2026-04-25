@@ -21,7 +21,7 @@ def calculate_risk(is_long, has_ip, has_bad_tld, is_spoofing, vt_votes, is_new):
     if is_long: score += 15
     if has_ip: score += 35
     if has_bad_tld: score += 25
-    if is_spoofing: score += 75 # BUMPED THIS UP! Instant Critical Risk.
+    if is_spoofing: score += 75 
     if vt_votes > 0: score += 45
     if is_new and (is_long or has_bad_tld or is_spoofing): score += 15 
     return min(score, 100)
@@ -44,7 +44,7 @@ if st.button("Scan URL"):
         is_long = rules.is_suspiciously_long(target_url)
         has_ip = rules.has_ip_address(parsed.netloc)
         has_bad_tld = rules.has_suspicious_tld(parsed.netloc)
-        is_spoofing = rules.is_impersonating_brand(parsed.netloc) # The new check
+        is_spoofing = rules.is_impersonating_brand(parsed.netloc) 
         
         st.write(f"**Suspiciously Long:** {'🚨 Yes' if is_long else '✅ No'}")
         st.write(f"**Uses IP as Domain:** {'🚨 Yes' if has_ip else '✅ No'}")
@@ -74,7 +74,7 @@ if st.button("Scan URL"):
                     if domain_votes > 0:
                         st.error(f"❌ WARNING: The domain itself is flagged!")
                     else:
-                        # CHANGED THIS LINE: Don't call it "clean"
+                        
                         st.warning(f"⚠️ Domain ({parsed.netloc}) has 0 vendor flags, but remains unverified by historical data.")
                 else:
                     st.error("Domain unknown. High risk of fresh phishing.")
