@@ -28,7 +28,7 @@ def is_impersonating_brand(domain):
     if any(trust in domain_lower for trust in trusted_domains):
         return False
         
-    # 2. Check for EXACT spoofing (e.g., secure-maybank.com)
+    # 2. Check for EXACT spoofing
     if any(brand in domain_lower for brand in brands):
         return True
         
