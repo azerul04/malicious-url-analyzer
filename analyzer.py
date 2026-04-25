@@ -1,6 +1,6 @@
 from urllib.parse import urlparse
-import rules       # Brings in your local tests
-import threat_api  # Brings in your internet tests
+import rules       
+import threat_api  
 
 def run_full_scan(target_url, api_key):
     print(f"\n{'='*50}")
@@ -30,7 +30,7 @@ def run_full_scan(target_url, api_key):
 # RUNNING THE ENGINE
 # ==========================================
 
-# 1. Paste your real API key here again
+# 1. Paste the real API key here again
 MY_API_KEY = "2b254339d864f035ac3edba19c91ec2ebca7d08c305415fa8dda6bbf338a66ee"
 
 # Create an infinite loop so the program keeps asking for URLs
